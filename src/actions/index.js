@@ -2,23 +2,25 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 import { 
-  FETCH_TODOS, 
-  DELETE_TODO, 
-  TODO_ERROR, 
-  FETCH_TODO,
-  CREATE_TODO,
-  UPDATE_TODO
+  FETCH_USERS, 
+  DELETE_USER, 
+  USER_ERROR, 
+  FETCH_USER,
+  CREATE_USER,
+  UPDATE_USER
 } from './types';
 
 const API_URL = 'http://localhost:3000';
 
 export function fetchTodos() {
   return (dispatch) => {
-    axios.get(`${API_URL}/todos`)
+    axios.get(`${API_URL}/users`)
       .then(response => {
+        console.log(response);
+        
         dispatch({ 
-          type: FETCH_TODOS,
-          payload: response.data.todos
+          type: FETCH_USERS,
+          payload: response.data
         });
       })
       .catch(error => {
@@ -29,11 +31,13 @@ export function fetchTodos() {
 
 export function fetchTodo(id) {
   return (dispatch) => {
-    axios.get(`${API_URL}/todos/${id}`)
+    axios.get(`${API_URL}/users/${id}`)
       .then(response => {
+        console.log(response);
+        
         dispatch({
-          type: FETCH_TODO,
-          payload: response.data.todo
+          type: FETCH_USER,
+          payload: response.data._id
         })
       })
       .catch(error => {
@@ -44,11 +48,11 @@ export function fetchTodo(id) {
 
 export function deleteTodo({ _id }) {
   return (dispatch) => {
-    axios.delete(`${API_URL}/todos/${_id}`)
+    axios.delete(`${API_URL}/users/${_id}`)
       .then(response => {
         dispatch({
-          type: DELETE_TODO,
-          payload: response.data.todo._id
+          type: DELETE_USER,
+          payload: response.data
         });
       })
       .catch(error => {
@@ -59,11 +63,11 @@ export function deleteTodo({ _id }) {
 
 export function createTodo(props) {
   return (dispatch) => {
-    axios.post(`${API_URL}/todos`, props)
+    axios.post(`${API_URL}/users`, props)
       .then(response => {
         dispatch({
-          type: CREATE_TODO,
-          payload: response.data.todo
+          type: CREATE_USER,
+          payload: response.data
         });
         browserHistory.push('/');
       })
@@ -75,11 +79,11 @@ export function createTodo(props) {
 
 export function updateTodo(id, props) {
   return (dispatch) => {
-    axios.patch(`${API_URL}/todos/${id}`, props)
+    axios.put(`${API_URL}/users/${id}`, props)
       .then(response => {
         dispatch({
-          type: UPDATE_TODO,
-          payload: response.data.todo
+          type: UPDATE_USER,
+          payload: response.data
         });
         browserHistory.push('/');
       })
@@ -92,7 +96,7 @@ export function updateTodo(id, props) {
 export function todoError(error) {
   return (dispatch) => {
     dispatch({
-      type: TODO_ERROR,
+      type: USER_ERROR,
       payload: error
     });
   };

@@ -15,9 +15,9 @@ class TodoForm extends Component {
         <div className="row">
           <div className="col-xs-12 col-sm-6 col-md-6"> 
             <Field
-              name="text"
+              name="name"
               type="text"
-              label="Text"
+              label="Name"
               required={true}
               component={Input}
             />
@@ -25,10 +25,29 @@ class TodoForm extends Component {
           <div className="col-xs-12 col-sm-6 col-md-6"> 
             <div className="margin-top-30px">
               <Field
-                name="completed"
-                label="Completed"
+                name="email"
+                label="Email"
                 disabled={this.props.disableCompleted}
-                component={Checkbox}
+                component={Input}
+              />
+            </div>
+          </div>
+          <div className="col-xs-12 col-sm-6 col-md-6"> 
+            <div className="margin-top-30px">
+              <Field
+                name="age"
+                label="Age"
+                component={Input}
+              />
+            </div>
+          </div>
+
+           <div className="col-xs-12 col-sm-6 col-md-6"> 
+            <div className="margin-top-30px">
+              <Field
+                name="password"
+                label="Password"
+                component={Input}
               />
             </div>
           </div>
@@ -45,7 +64,6 @@ class TodoForm extends Component {
 TodoForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  disableCompleted: PropTypes.bool.isRequired
 };
 
 function validate(values) {

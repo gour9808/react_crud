@@ -10,29 +10,22 @@ import { fetchTodo, createTodo, updateTodo } from '../actions/index';
 
 class TodoContainer extends Component {
   onSubmit(props) {
-    if (this.props.todo._id) {
+    console.log(props);
+    
+    if (this.props.todo) {
       return this.props.updateTodo(this.props.todo._id, props);
     }
     this.props.createTodo(props);
   }
 
-  handleInitialize({ text, completed }) {
-    this.props.initialize('todo', {
-      text,
-      completed
-    });
-  }
-
   componentWillMount() {
+    console.log(this.props.location.query.id);
+    
     const id = this.props.location.query.id;
 
     if (id) {
       this.props.fetchTodo(id);   
     }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.handleInitialize(nextProps.todo);
   }
 
   renderAlert() {
@@ -54,7 +47,6 @@ class TodoContainer extends Component {
           <div>
             <TodoForm 
               onSubmit={this.onSubmit.bind(this)} 
-              disableCompleted={!this.props.todo._id}
             />
           </div>
            {this.renderAlert()}         

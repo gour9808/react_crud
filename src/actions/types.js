@@ -1,6 +1,6 @@
-export const FETCH_TODOS = 'FETCH_TODOS';
-export const DELETE_TODO = 'DELETE_TODO';
-export const TODO_ERROR = 'TODO_ERROR';
-export const FETCH_TODO = 'FETCH_TODO';
-export const CREATE_TODO = 'CREATE_TODO';
-export const UPDATE_TODO = 'UPDATE_TODO';
+export const FETCH_USERS = 'FETCH_USERS';
+export const DELETE_USER = 'DELETE_USER';
+export const USER_ERROR = 'USER_ERROR';
+export const FETCH_USER = 'FETCH_USER';
+export const CREATE_USER = 'CREATE_USER';
+export const UPDATE_USER = 'UPDATE_USER';

@@ -1,5 +1,6 @@
 export const types = {
   BOOLEAN: 'boolean',
   STRING: 'string',
-  TIMESTAMP: 'timestamp'
+  TIMESTAMP: 'timestamp',
+  NUMBER: 'number'
 };

@@ -37,12 +37,12 @@ class TodoListContainer extends Component {
   }
 
   onNew() {
-    this.context.router.push('/todo');
+    this.context.router.push('/add-user');
   }
 
   onEdit() {
     this.context.router.push({
-      pathname: '/todo',
+      pathname: '/add-user',
       query: { id: this.state.selectedRow._id }
     });
   }
@@ -67,7 +67,7 @@ class TodoListContainer extends Component {
   render() {
     return (
       <PageContainer>
-        <Portlet title="Todos">
+        <Portlet title="Users">
           <div className="row">
             <div className="col-md-12">
               <Grid 

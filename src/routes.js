@@ -8,6 +8,6 @@ import TodoContainer from './containers/TodoContainer';
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={TodoListContainer} />
-    <Route path="/todo" component={TodoContainer} />
+    <Route path="/add-user" component={TodoContainer} />
   </Route>
 );

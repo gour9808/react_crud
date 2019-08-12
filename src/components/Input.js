@@ -16,7 +16,6 @@ function Input({ input, label, type, required, meta: { touched, error, invalid }
 Input.propTypes = {
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
   meta: PropTypes.object.isRequired,
   required: PropTypes.bool
 };
